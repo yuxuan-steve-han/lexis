@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Input, Container, Button, Grid, Text, GridItem, Box } from '@chakra-ui/react';
+import { Input, Container, Button, Grid, Text, GridItem, Box, Heading, Center} from '@chakra-ui/react';
 import { SocketContext } from "../context/socket";
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -21,12 +22,18 @@ const Login = () => {
 
   return (
     <Box w='100%' h='100%'>
+        <Center overflow={'hidden'} position='absolute' w='100%' top='100px' display='flex' flexDirection={'column'}>
+          <img src="https://media.discordapp.net/attachments/978839419211616276/982851150661439559/Lexis-removebg-preview.png" width={"400px"} height="50px"/>
+          <Text fontWeight={"bold"} color="white" fontFamily="Montserrat" fontSize={"20px"} my="2.5"> 
+            The Educational Word Game!
+          </Text>
+        </Center>
     <Container
       display='flex'
       justifyContent='center'
       alignItems='center'
       flexDir={'column'}
-      height='100vh'
+        height='100vh'
       >
       <Container w={'sm'} bg='white' p='10' borderRadius='10'>
       <Text my='1' textAlign={'left'}> Ready to Play? </Text>
@@ -42,7 +49,9 @@ const Login = () => {
             if(submitName()) navigate('/create');
           }}>Create</Button>
           </GridItem>
+          <Text onClick={() => navigate('/rules')} as='a' href="javascript:;" color={'teal'} > Read the Rules </Text>
         </Grid>
+
       </Container>
     </Container>   
     </Box>
