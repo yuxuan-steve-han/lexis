@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Input, Container, Button, Grid, Text, GridItem, Box, Heading, Center} from '@chakra-ui/react';
+import { Input, Container, Button, Grid, Text, GridItem, Box, Center} from '@chakra-ui/react';
 import { SocketContext } from "../context/socket";
 
 
@@ -23,7 +23,7 @@ const Login = () => {
   return (
     <Box w='100%' h='100%'>
         <Center overflow={'hidden'} position='absolute' w='100%' top='100px' display='flex' flexDirection={'column'}>
-          <img src="https://media.discordapp.net/attachments/978839419211616276/982851150661439559/Lexis-removebg-preview.png" width={"400px"} height="50px"/>
+          <img src="https://media.discordapp.net/attachments/978839419211616276/982851150661439559/Lexis-removebg-preview.png" width={"400px"} height="50px" alt="logo"/>
           <Text fontWeight={"bold"} color="white" fontFamily="Montserrat" fontSize={"20px"} my="2.5"> 
             The Educational Word Game!
           </Text>

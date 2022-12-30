@@ -1,6 +1,5 @@
 // theme.ts
 import { theme as chakraTheme } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools';
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 
 // color mode config

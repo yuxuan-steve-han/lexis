@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 import { Socket, Server } from 'socket.io';
 import { createServer } from 'http';
 import express, { Request, Response } from 'express';
@@ -10,8 +12,15 @@ const io = new Server(http, { cors: { origin: '*' } });
 let lobbies = new Lobbies()
 
 app.get('/', function(req: Request, res: Response) {
-    res.send('Hello world!');
+    res.send(`Server running on port ${process.env.PORT}`);
 });
+
+function lobbyCleanUp() {
+    lobbies.cleanUp();
+    setTimeout(lobbyCleanUp, 300000);
+}
+
+lobbyCleanUp();
 
 io.on('connection', function(socket: Socket) {
     console.log('a user ' + socket.id + ' connected');
@@ -27,6 +36,10 @@ io.on('connection', function(socket: Socket) {
     socket.on('createLobby', function(words: string[]) {
         console.log(`${socket.id} created a lobby`);
         lobbyID = lobbies.createLobby(words, socket.id);
+        if(lobbyID === '') {
+            socket.emit('lobbyCreateFailed');
+            return;
+        }
         socket.join(lobbyID);
         joined = true;
         socket.emit('lobbyCreated', lobbyID);
@@ -96,6 +109,6 @@ io.on('connection', function(socket: Socket) {
 	});
 });
 
-http.listen(3001, function() {
-	console.log('listening on *:3001');
+http.listen(process.env.PORT, function() {
+	console.log(`listening on *:${process.env.PORT}`);
 });

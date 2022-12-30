@@ -6,14 +6,12 @@ import {
     PinInputField,
     Button
 } from '@chakra-ui/react'
-import { useState, useEffect, useContext } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { SocketContext } from "../context/socket";
 
 const JoinLobby = () => {
     const [pin, setPin] = useState('');
     const navigate = useNavigate();
-    const socket = useContext(SocketContext);
 
     const joinLobby = () => {
         navigate('/waiting/' + pin);

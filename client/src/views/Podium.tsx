@@ -6,19 +6,7 @@ import Confetti from 'react-confetti'
 import { useState, useContext, useEffect } from 'react'
 import { Button } from '@chakra-ui/react'
 import { useNavigate, useParams } from "react-router-dom";
-import { extendTheme } from '@chakra-ui/react'
 import { SocketContext } from "../context/socket";
-
-
-const breakpoints = {
-  sm: '320px',
-  md: '768px',
-  lg: '960px',
-  xl: '1200px',
- '2xl': '1536px',
-}
-
-
 
 type Props ={
     first?: string;
@@ -101,13 +89,6 @@ const Podium = (props: Props) => {
                     </Box>
                 </Box>
             </HStack>
-
-
-
-
-
-           
-     
     </Container>
   )
 }

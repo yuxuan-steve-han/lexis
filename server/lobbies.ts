@@ -23,9 +23,23 @@ export default class Lobbies {
         this.lobbies = new Map<string, Lobby>();
     }
 
+    cleanUp() {
+        this.lobbies.forEach((lobby, key) => {
+            if (lobby.players.length === 0) {
+                this.lobbies.delete(key);
+                console.log(`Lobby ${key} deleted`);
+            }
+        });
+    }
+
     createLobby(words: string[], adminID: string): string {
+        let id = this.generateID();
+        if(id === '') {
+            return '';
+        }
+
         let lobby = { 
-			id: this.generateID(),
+			id: id,
             words: words,
             players: [],
             isStarted: false,
@@ -33,6 +47,7 @@ export default class Lobbies {
             admin: adminID,
             playersDone: 0
 		};
+        
         this.lobbies.set(lobby.id, lobby);
         return lobby.id;
     }
@@ -165,11 +180,12 @@ export default class Lobbies {
 
     //very scuffed method
     generateID(): string {
+        if(this.lobbies.size >= 9000) return '';
+
         let id: string;
         do {
             id = Math.floor(1000 + Math.random() * 9000).toString();
         } while (this.lobbies.has(id));
         return id;
     }
-
 }

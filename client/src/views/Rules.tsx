@@ -1,12 +1,8 @@
-import React from 'react'
 import { Heading } from '@chakra-ui/react'
-import {HStack,Stack} from '@chakra-ui/react'
+import { HStack } from '@chakra-ui/react'
 import { Box, Container } from '@chakra-ui/react'
-import { useState } from 'react'
 import { Button } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
-
-
 
 
 type Props = {}

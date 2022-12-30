@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route,} from "react-router-dom";
 import customTheme from './views/components/customTheme';
 import './index.css';
 
-
 // pages
 import Login from './views/Login';
 import Create from './views/Create_Session/Create';
@@ -15,7 +14,6 @@ import WaitingPage from './views/Waiting_Page/WaitingPage';
 import JoinLobby from './views/JoinLobby';
 import Play from './views/Play/Play';
 import Rules from './views/Rules';
-
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

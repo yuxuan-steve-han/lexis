@@ -1,7 +1,8 @@
 import io from 'socket.io-client';
 import React from 'react';
+import env from "react-dotenv";
 
-export const socket = io('http://localhost:3001', {
+export const socket = io(env.SERVER_URL, {
     query: {
         id: sessionStorage.getItem('id')
     }
