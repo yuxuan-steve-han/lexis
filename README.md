@@ -1,18 +1,3 @@
 # Lexis
 
-## TODO
-### UI
-[ ] pages
-
-### server
-[ ] server
-
-
-## SocketIO APIs
-
-setName
-sets the name
-
-createLobby
-takes a list of words and creates a lobby. emit a lobbyCreated event to return the lobbyID
-
+Check out the playing [demo](https://www.youtube.com/watch?v=yvk9MOyPcbc)
